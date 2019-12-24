@@ -1,0 +1,211 @@
+@import "_mixins";
+@import "_vars";
+
+@include includeCommonStyles;
+@include ignoreDefaultStyles;
+
+
+@include scrollStyles;
+
+input{
+    border: none;
+    // border-bottom: 0.2em solid $black;
+    background: transparent;
+    color: $darkerGrey;
+    outline: none;
+    height: 1.5em;
+    width: 100%;
+    border-bottom: 0.2em solid $lightGrey;
+    &:focus + .InputSeparatorLine {
+        transform: scaleX(1) translateY(-2px);   
+        opacity: 1;
+    }
+    &:hover + .InputSeparatorLine{
+        transform: scaleX(1) translateY(-2px);   
+        opacity: 1;
+    }
+}
+
+
+.InputSeparatorLine {
+    height:0.2em;
+    width: 100%;
+    background: $darkGrey;
+    display: block;
+    transform: scaleX(0) translateY(-2px);
+    transform-origin: 50%;
+    opacity: 0;
+    transition: all .15s $curve;
+}
+
+
+* :focus {
+    outline-color: transparent;
+    outline-style: none;
+}
+
+.hide{
+    display: none;
+}
+
+.main-component-outer-layer{
+    width: 100%;
+    // height: 100vh;
+    // background: $primaryGreen;
+    .main-component-inner-layer{
+        @include flexCentreCol;
+        justify-content: flex-start;
+        width: 100%;
+        height: 100%;
+        .header-container{
+            width: 100%;
+            padding: 0.5em 0;
+        }
+        .form-page-container{
+            @include flexCentreRow;
+            width: 70%;
+            height: 100%;
+            margin: 0.5em 0;
+            .form-page-container-inner-layer{
+                @include flexCentreRow;
+                width: 100%;
+                .form-container{
+                    width: 75%;
+                    // height: 70vh;
+                    @include flexCentreCol;
+                    justify-content: space-between;
+                    padding: 1.5em 0.5em;
+                    background: $white;
+                    @include box_shadow;
+                    .upper-container{
+                        @include flexCentreCol;
+                        width: 100%;
+                        .main-header-container{
+                            @include flexCentreRow;
+                            // justify-content: flex-start;
+                            width: 100%;
+                            h3{
+                                font-size: 1.5em;
+                                color: $black;
+                                font-weight: bold;
+                            }
+                        }
+                        .input-form-container{
+                            width: 95%;
+                            .input-wrapper{
+                                @include flexCentreCol;
+                                width: 100%;
+                                margin: 1em 0;
+                                input{
+                                    width: 100%;
+                                }
+                                p{
+                                    width: 100%;
+                                    background: $primaryMagenta;
+                                    padding: 0.5em;
+                                    text-align: center;
+                                    color: $white;
+                                }
+                                .hide{
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+                    .button-container{
+                        @include flexCentreRow;
+                        // justify-content: flex-start;
+                        width: 100%;
+
+                        .button-container-inner-layer{
+                            width: 25%;
+                            text-align: center;
+                            padding: 0.5em 1em;
+                            color: $white;
+                            background: $darkerGrey;
+                            border-radius: 0.5em;
+                            cursor: pointer;
+                        }
+                    }
+                }
+
+                .one{
+                    height: 35vh;
+                    padding: 2em 1em;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // class TodoApp extends React.Component {
+    //   constructor() {
+    //     super();
+    //     this.state = {
+    //       todos: ['a','b','c','d','e','f','g','h','i','j','k'],
+    //       currentPage: 1,
+    //       todosPerPage: 3
+    //     };
+    //     this.handleClick = this.handleClick.bind(this);
+    //   }
+
+    //   handleClick(event) {
+    //     this.setState({
+    //       currentPage: Number(event.target.id)
+    //     });
+    //   }
+
+    //   render() {
+    //     const { todos, currentPage, todosPerPage } = this.state;
+
+    //     // Logic for displaying current todos
+    //     const indexOfLastTodo = currentPage * todosPerPage;
+    //     const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
+    //     const currentTodos = todos.slice(indexOfFirstTodo, indexOfLastTodo);
+
+    //     const renderTodos = currentTodos.map((todo, index) => {
+    //       return <li key={index}>{todo}</li>;
+    //     });
+
+    //     // Logic for displaying page numbers
+    //     const pageNumbers = [];
+    //     for (let i = 1; i <= Math.ceil(todos.length / todosPerPage); i++) {
+    //       pageNumbers.push(i);
+    //     }
+
+    //     const renderPageNumbers = pageNumbers.map(number => {
+    //       return (
+    //         <li
+    //           key={number}
+    //           id={number}
+    //           onClick={this.handleClick}
+    //         >
+    //           {number}
+    //         </li>
+    //       );
+    //     });
+
+    //     return (
+    //       <div>
+    //         <ul>
+    //           {renderTodos}
+    //         </ul>
+    //         <ul id="page-numbers">
+    //           {renderPageNumbers}
+    //         </ul>
+    //       </div>
+    //     );
+    //   }
+    // }

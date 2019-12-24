@@ -1,0 +1,76 @@
+@import "_mixins";
+@import "_vars";
+
+@include includeCommonStyles;
+@include ignoreDefaultStyles;
+
+
+@include scrollStyles;
+
+.popup-outer-layer {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: rgba(0,0,0, 0.5);
+  z-index: 1;
+  .popup-inner-layer {
+    @include flexCentreRow;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    .popup-container{
+      position: absolute;
+      width: 35%;
+      // height: 10.5em;
+      top: 20%;
+      background: white;
+      padding: 0.5em;
+      .popup-header{
+        position: relative;
+        width: 97%;
+        margin: 0.5em 0;
+        padding: 0.5em;
+        .popup-header-inner-container{
+          @include flexCentreRow;
+          width: 100%;
+          h3{
+            color: $black;
+            font-size: 1.2em;
+          }
+        }
+        .close-button-container{
+          position: absolute;
+          right: 2em;
+          top: 0em;
+          cursor: pointer;
+        }
+      }
+      .download-option-outer-layer{
+        @include flexCentreCol;
+        width: 100%;
+        margin: 0.5em 0;
+        .download-date-container{
+          cursor: pointer;
+        }
+        .download-button-container{
+          @include flexCentreRow;
+          background: $darkGrey;
+          padding: 0.5em;
+          border-radius: 0.3em;
+          margin: 0.7em 0 0 0;
+          cursor: pointer;
+          p{
+              color: $white;
+              font-size: 0.9em
+          }
+        }
+      }
+    }
+  }
+}
+

@@ -1,0 +1,447 @@
+@import "./mixins";
+@import "./vars";
+
+@include ignoreDefaultStyles;
+@include includeCommonStyles;
+@include gradientAnimation;
+
+
+.gradientButtonWrapper, .whiteButtonWrapper{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+    @include flexCentreRow;
+    @include box_shadow;
+    
+    font-size: 0.8em;
+    padding: 0.4em 1.7em 0.6em 1.7em;
+    border-radius: 0.355em;
+    margin: 0.5em;
+    font-weight: 600;
+    cursor: pointer;
+
+    &:hover{
+        @include box_shadow_dark;
+    }
+}
+
+
+.gradientButtonWrapper{
+    background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB, #23D5AB, #23A6D5, #E73C7E, #EE7752,#E73C7E, #23A6D5, #23D5AB);
+    background-size: 1000% 1000%;
+    -webkit-animation: Gradient 15s ease infinite;
+    -moz-animation: Gradient 15s ease infinite;
+    animation: Gradient 15s ease infinite;
+    color: $white;
+
+    // &:hover{
+    //     // @include box_shadow_glow;
+    // }
+}
+.loadingGradient{
+    background: linear-gradient(-45deg, rgb(212, 212, 212), #ffffff, rgb(212, 212, 212));
+    background-size: 1000% 1000%;
+    -webkit-animation: Gradient 5s ease infinite;
+    -moz-animation: Gradient 5s ease infinite;
+    animation: Gradient 5s ease infinite;
+    color: $white;
+
+    // &:hover{
+    //     // @include box_shadow_glow;
+    // }
+}
+
+.disabled-button{
+    background: $mediumGrey;
+    cursor: not-allowed;
+    box-shadow: none;
+
+    &:hover{
+        box-shadow: none;
+    }
+}
+
+.whiteButtonWrapper{
+    background: $white;
+    transition: 0.2s;
+    font-size: 0.8em;
+}
+
+.inputCommonWrapper{
+    width: 100%;
+
+    .inputCategorySection{
+        @include flexCentreRow;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 100%;
+        margin-bottom: 1.5em;
+
+        .mandatorySection{
+            @include flexCentreRow;
+            margin-right: 0.5em;
+            min-width: 4em;
+
+            p{
+                color: $white;
+                font-size: 0.7em;
+                background: $secondaryMagenta;
+                padding: 0.2em 0.5em;
+            }
+        }
+        
+        .inputColumn{
+            @include flexCentreCol;
+            align-items: flex-start;
+            width: 100%;
+            margin: 0 0.5em;
+
+            &:hover{
+
+                .animationLine{
+                    .innerLine{
+                        width: 100%;
+                        background: $darkerGrey;
+                    }
+                }
+                
+            }
+            &:focus{
+                .animationLine{
+                    .innerLine{
+                        width: 100%;
+                        background: $darkerGrey;
+                    }
+                }
+            }
+            input{
+                border: none;
+                // border-bottom: 0.2em solid $black;
+                background: transparent;
+                color: $darkerGrey;
+                outline: none;
+                height: 1.5em;
+                width: 100%;
+                border-bottom: 0.2em solid $lightGrey;
+                &:focus + .InputSeparatorLine {
+                    transform: scaleX(1) translateY(-2px);   
+                      opacity: 1;
+                   }
+                   &:hover + .InputSeparatorLine{
+                    transform: scaleX(1) translateY(-2px);   
+                    opacity: 1;
+                   }
+            }
+
+            
+            .InputSeparatorLine {
+                height:0.2em;
+                width: 100%;
+                background: $darkGrey;
+                display: block;
+                transform: scaleX(0) translateY(-2px);
+                transform-origin: 50%;
+                opacity: 0;
+                transition: all .15s $curve;
+            }
+            
+            
+            * :focus {
+                outline-color: transparent;
+                outline-style: none;
+            }
+            
+            .animationLine{
+                margin-top: 0;
+                padding-top: 0;
+                margin-bottom: 0;
+                width: 100%;
+        
+                .innerLine{
+                    width: 100%;
+                    height: 100%;
+                    // background: yellow;
+                    width: 0%;
+                    transition: 0.2s;
+                }
+        
+                
+            }
+
+            .warningSection{
+                width: 100%;
+                text-align: center;
+
+                p{
+                    color: $white;
+                    background:$primaryMagenta;
+                    padding: 0.5em;
+                }
+            }
+
+            .numberInputSection{
+                @include flexCentreRow;
+                justify-content: space-between;
+                width: 41%;
+                // margin-left: 15%;
+                .numberSection{
+                    @include flexCentreRow;
+                    background: $veryLightGrey;
+                    padding: 0.5em;
+                    border-radius: 0.2em;
+                    p{
+                        font-size: 1em;
+                    }
+                }
+
+                .yearSelectionCategory{
+                    p{
+                        font-size: 1em;
+                    }
+                }
+            }
+        }
+
+        .companyNameSection{
+            width: 80%;
+        }
+        .contactSection{
+            width: 50%;
+            margin-left: 15%;
+
+            .inputRow{
+                @include flexCentreRow;
+                width: 100%;
+
+                .inputColumn{
+                    width: 100%;
+                }
+
+                .countryCode{
+                    margin-bottom: 0.5em;
+                }
+            }
+
+            
+        }
+        .addressSection{
+            width: 50%;
+            margin-left: 15%;
+        }
+        .addressSectionExtended{
+            width: 100%;
+            margin-left: 15%;
+        }
+        .numberSectionExtended{
+            width: 56%;
+            margin-left: 15%;
+        }
+        // .cardNumberSection{
+        //     @include flexCentreRow;
+
+        // }
+        // .numberCountSection{
+        //     p{
+
+        //     }
+        // }
+    }
+}
+
+.selectList{
+    select{
+        width: 100%;
+        background: #6d6d6d;
+        color: #ffffff;
+        padding: 0.3em;
+    }
+}
+
+.radio-outline{
+    .radio-mid{
+        .radio-inline{
+            .checkmark{
+                margin-top: 0.2em;
+            }
+            p{
+                font-size: 1em;
+                margin-top: 0.2em;
+            }
+        }
+    }
+}
+
+
+.radio-inline {
+    display: block;
+    position: relative;
+    padding-left: 1.5em;
+    margin-bottom: 0.4em;
+    margin-top: 0.1em;
+
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 0.85em;
+    font-weight: 400;
+    cursor: pointer;
+    color: $darkGrey;
+    // font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    /* Hide the browser's default radio button */
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+    }
+}
+
+
+
+/* Create a custom radio button */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 0.8em;
+    min-height: 0.8em;
+    // margin-top: 0.25em;
+    background-color: $white;
+    border: 0.15em solid $darkGrey;
+    border-radius: 50%;
+    margin-right: 0.5em;
+    transition: 0.2s;
+}
+
+/* On mouse-over, add a grey background color */
+.radio-inline:hover input ~ .checkmark {
+    background-color: $darkGrey;
+}
+
+/* When the radio button is checked, add a blue background */
+.radio-inline input:checked ~ .checkmark {
+    background-color: $secondaryMagenta;
+    border-color: $secondaryMagenta;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radio-inline input:checked ~ .checkmark:after {
+    display: block;
+}
+
+// /* Style the indicator (dot/circle) */
+// .materialTypeSelectContainer .checkmark:after {
+//     top: 9px;
+//     left: 9px;
+//     width: 8px;
+//     height: 8px;
+//     border-radius: 50%;
+//     background: white;
+// }
+
+
+input[type=radio]{
+    cursor: pointer;
+    margin-right: 2em
+}
+
+.modalContainer{
+    position: relative;
+    width: 100%;
+    height: 90%;
+    // position: absolute;
+    .modalContainerInnerLayer{
+        @include flexCentreRow;
+        width: 100%;
+        height: 100%;
+        .modalWrapper {
+            // background: $white;
+            // @include box_shadow;
+            // margin: 100px auto 0;
+            // display: none;
+            transition: .4s ease-in-out;
+            width: 60%;
+            // @include box_shadow;
+            .modalHeader {
+                @include flexCentreRow;
+                background: $white;
+                height: 40px;
+                line-height: 40px;
+                padding: 5px 20px;
+                text-align: center;
+                h1{
+                    color: black;
+                    margin: 0;
+                    padding: 0;
+                    width: 94%;
+                }
+                .closeModalBtn {
+                    @include flexCentreRow;
+                    color: black;
+                    cursor: pointer;
+                    float: right;
+                    font-size: 50px;
+                    margin: 0;
+                }
+            }
+            .modalBody {
+                // .loginModalOuterLayer{
+                //     background-color: transparent;
+                //     width:100%;
+                //     height: 50vh;
+                //     perspective: 1000px;
+                //     .loginModalInnerLayer{
+                //         position: relative;
+                //         width: 100%;
+                //         height: 100%;
+                //         text-align: center;
+                //         transition: transform 0.6s;
+                //         transform-style: preserve-3d;
+                //         // box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                //         .loginModalContainerOne,.loginModalContainerTwo{
+                //             position: absolute;
+                //             width: 100%;
+                //             // height: 100%;
+                //             backface-visibility: hidden;
+                //         }
+                //         .loginModalContainerOne{
+                //             // color: white;
+                //             background-color: $secondaryBlue;
+                //             z-index: 2;
+                //         }
+                //         .loginModalContainerTwo{
+                //             // background-color: white;
+                //             // color: white;
+                //             height: 50vh;
+                //             transform: rotateY(180deg);
+                //             z-index: 1;
+                //             h1{
+                //                 color: black;
+                //             }
+                //             .modalContainer{
+                //                 width: 100%;
+                //                 height: 100%;
+                //                 .modalContainerInnerLayer{
+                //                     @include flexCentreRow;
+                //                     align-items: flex-start;
+                //                     .modalWrapper{
+                //                         width: 100%;
+                //                         height: 100%;
+                //                     }
+                //                 }
+                //             }
+                //         }
+                //     }
+                // }
+            }
+        }
+    }
+}

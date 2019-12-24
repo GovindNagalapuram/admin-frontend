@@ -1,0 +1,95 @@
+export const PageAnalyticsArray  = [
+    {
+        id: 1,
+        category: "Ceiling products",
+        subCategory: "Ceilings",
+        productType: "Suspended ceilings",
+        views: 11,
+        Time: "05/05/2019 10:00",
+    },
+    {
+        id: 2,
+        category: "Doors products",
+        subCategory: "Entrance doors",
+        productType: "Sliding doors",
+        views: 18,
+        Time: "12/04/2020 18:34",
+    },
+    {
+        id: 3,
+        category: "Lighting products",
+        subCategory: "Outdoor lighting",
+        productType: "Outdoor wall lamps",
+        views: 7,
+        Time: "07/03/2019 15:20",
+    },
+    {
+        id: 4,
+        category: "Office products",
+        subCategory: "Office",
+        productType: "Office desks",
+        views: 10,
+        Time: "25/03/2019 12:30",
+    },
+    {
+        id: 5,
+        category: "Furniture products",
+        subCategory: "Sofas and armchairs",
+        productType: "Armchairs",
+        views: 5,
+        Time: "26/03/2019 13:34",
+    },
+    {
+        id: 6,
+        category: "Home automation products",
+        subCategory: "Home automation system",
+        productType: "Video multimedia systems",
+        views: 50,
+        Time: "15/06/2019 10:50",
+    },
+    {
+        id: 7,
+        category: "Insulation products",
+        subCategory: "Insulation",
+        productType: "Loose insulating materials",
+        views: 180,
+        Time: "11/05/2019 17:04",
+    },
+    {
+        id: 8,
+        category: "Roof products",
+        subCategory: "Roofs",
+        productType: "Sheets and panels for roofs",
+        views: 70,
+        Time: "08/10/2019 15:25",
+    },
+    {
+        id: 9,
+        category: "Wellness products",
+        subCategory: "Spas and wellness",
+        productType: "Hot tubs",
+        views: 9,
+        Time: "17/03/2020 10:35",
+    },
+    {
+        id: 10,
+        category: "Stair products",
+        subCategory: "Stairs",
+        productType: "Open staircases",
+        views: 50,
+        Time: "28/05/2019 15:26",
+    },
+    {
+        id: 11,
+        category: "Stair2 products",
+        subCategory: "Stairs",
+        productType: "Open staircases",
+        views: 50,
+        Time: "28/05/2019 15:26",
+    },
+    
+]
+
+// const read = ["a", "b"]
+
+// export default read;

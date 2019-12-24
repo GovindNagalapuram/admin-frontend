@@ -1,0 +1,741 @@
+@import "_mixins";
+@import "_vars";
+
+@include includeCommonStyles;
+@include ignoreDefaultStyles;
+
+
+@include scrollStyles;
+
+
+input{
+    border: none;
+    // border-bottom: 0.2em solid $black;
+    background: transparent;
+    color: $darkerGrey;
+    outline: none;
+    height: 1.5em;
+    width: 100%;
+    border-bottom: 0.1em solid $semiDarkGrey;
+    &:focus + .InputSeparatorLine {
+        transform: scaleX(1) translateY(-2px);   
+        opacity: 1;
+    }
+    &:hover + .InputSeparatorLine{
+        transform: scaleX(1) translateY(-2px);   
+        opacity: 1;
+    }
+}
+
+
+.InputSeparatorLine {
+    height:0.1em;
+    width: 100%;
+    background: $darkGrey;
+    display: block;
+    transform: scaleX(0) translateY(-2px);
+    transform-origin: 50%;
+    opacity: 0;
+    transition: all .15s $curve;
+}
+
+.navbar-outer-layer{
+    width: 100%;
+    position: relative;
+    .navbar-inner-layer{
+        @include flexCentreRow;
+        justify-content: space-between;
+        width: 95%;
+        padding: 0.5em 0;
+        margin: 0 auto;
+        .logo-container{
+            cursor: pointer;
+        }
+        .profile-container{
+            @include flexCentreRow;
+            .button-container{
+                text-align: center;
+                padding: 0.5em;
+                color: $black;
+                background: $veryLightGrey;
+                border-radius: 0.3em;
+                margin: 0.5em;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+.hide{
+    display: none;
+}
+
+.dummy-modal-container{
+    width: 100%;
+    .generic-modal-outer-layer{
+        @include flexCentreCol;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        background: #ffffffd6;
+        z-index: 1;
+        .generic-modal-inner-layer{
+            @include flexCentreCol;
+            justify-content: flex-start;
+            align-items: flex-end;
+            position: relative;
+            width: 60%;
+            background: $white;
+            @include box_shadow;
+            // height: 100%;
+            padding: 1em;
+            .close-modal-button-container{
+                position: absolute;
+                top: 0em;
+                right: 0.5em;
+                cursor: pointer;
+                .close-modal-button-container-inner-layer{
+                    @include flexCentreRow;
+                    justify-content: flex-end;
+                    width: 97%;
+                    margin: 0.5em 0;
+                }
+            }
+            .services-form-column-container{
+                @include flexCentreCol;
+                align-items: flex-end;
+                width: 95%;
+                margin: 0 auto;
+                .services-form-container-outer-layer{
+                    width: 100%;
+                    .services-form-container-inner-layer{
+                        @include flexCentreCol;
+                        position: relative;
+                        width: 100%;
+                        .input-form-container{
+                            @include flexCentreRow;
+                            justify-content: flex-start;
+                            align-items: flex-start;
+                            width: 100%;
+                            margin: 0.5em 0;
+                            .input-header{
+                                width: 16%;
+                                font-weight: 600;
+                                h3{
+                                    color: $black;
+                                    
+                                }
+                            }
+                            .input-container{
+                                @include flexCentreCol;
+                                align-items: flex-start;
+                                width: 73%;
+                                .service-image-container{
+                                    @include flexCentreRow;
+                                    justify-content: flex-start;
+                                    align-items: flex-end;
+                                    img{
+                                        width: 40%;
+                                        height: 10em;
+                                        object-fit: cover;
+                                    }
+                                    .change-image-button{
+                                        margin-left: 1em;
+                                        background: $white;
+                                        padding: 0.5em 1em;
+                                        color: $black;
+                                        @include box_shadow;
+                                        cursor: pointer;
+                                        p{
+                                            color: $black;
+                                            &:hover{
+                                                color: $primaryMagenta;
+                                            }
+                                        }
+                                    }
+                                }
+                                input{
+                                    width: 100%;
+                                }
+                                p{
+                                    color: $primaryMagenta;
+                                    text-align: center;
+                                    // width: 100%;
+                                }
+                                .add-button-container{
+                                    background: $white;
+                                    padding: 0.5em 1em;
+                                    color: $black;
+                                    @include box_shadow;
+                                    cursor: pointer;
+                                    p{
+                                        color: $black;
+                                        &:hover{
+                                            color: $primaryMagenta;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .added-sub-services-scroll-container{
+                            max-height: 18em;
+                            overflow-y: auto;
+                            margin: 0.5em 0;
+                            width: 100%;
+                            .sub-services-form-inner-container{
+                                @include flexCentreCol;
+                                width: 97%;
+                                background: $white;
+                                @include box_shadow;
+                                margin: 0.5em auto;
+                                padding: 0.5em;
+                                .sub-services-form-input-data-container{
+                                    @include flexCentreCol;
+                                    width: 100%;
+                                    position: relative;
+                                    
+                                    .input-area-form-container{
+                                        @include flexCentreRow;
+                                        align-items: flex-start;
+                                        justify-content: flex-start;
+                                        width: 100%;
+                                        margin: 0.5em 0;
+                                        .input-field-header{
+                                            width: 20%;
+                                            margin-right: 0.5em;
+                                            h3{
+                                                color: $black;
+                                                font-size: 0.8em;
+                                            }
+                                        }
+                                        .input-field-container{
+                                            @include flexCentreCol;
+                                            align-items: flex-start;
+                                            width: 80%;
+                                            input{
+                                                width: 95%;
+                                            }
+                                            .InputSeparatorLine{
+                                                width: 95%;
+                                            }
+                                            p{
+                                                width: 100%;
+                                                text-align: center;
+                                                color: $primaryMagenta;
+                                            }
+                                            .show-image-text{
+                                                width: fit-content;
+                                                text-align: left;
+                                                color: $primaryMagenta;
+                                            }
+                                            textarea{
+                                                width: 94%;
+                                                border: 0.2em solid $lightGrey;
+                                                padding: 0.5em;
+                                                resize: none;
+                                            }
+                                            .add-button-container{
+                                                background: $white;
+                                                padding: 0.5em 1em;
+                                                color: $black;
+                                                @include box_shadow;
+                                                cursor: pointer;
+                                                margin: 0 0.5em;
+                                                p{
+                                                    color: $black;
+                                                    &:hover{
+                                                        color: $primaryMagenta;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        .sub-service-image-container{
+                                            @include flexCentreCol;
+                                            justify-content: flex-start;
+                                            align-items: flex-start;
+                                            .sub-image-add-container{
+                                                @include flexCentreCol;
+                                                @include flexCentreRow;
+                                                justify-content: flex-start;
+                                                align-items: flex-end;
+                                                img{
+                                                    // width: 40%;
+                                                    height: 10em;
+                                                    object-fit: cover;
+                                                }
+                                                .change-image-button{
+                                                    margin-left: 1em;
+                                                    background: $white;
+                                                    padding: 0.5em 1em;
+                                                    color: $black;
+                                                    @include box_shadow;
+                                                    cursor: pointer;
+                                                    p{
+                                                        color: $black;
+                                                        &:hover{
+                                                            color: $primaryMagenta;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                           
+                                            p{
+                                                color : $primaryMagenta;
+                                            }
+                                        }
+                                    }
+                                    .add-close-button{
+                                        @include flexCentreRow;
+                                        justify-content: flex-end;
+                                        align-items: flex-end;
+                                        margin: 1em 0 0 0;
+                                        width: 100%;
+                                        .close-sub-container{
+                                            @include flexCentreRow;
+                                            justify-content: flex-end;
+                                            margin-right: 1em;
+                                            p{
+                                                background: $black;
+                                                padding: 0.5em 2em;
+                                                color: $white;
+                                                cursor: pointer;
+                                                transition: 0.2s;
+                                                &:hover{
+                                                    color: $black;
+                                                    background: $white;
+                                                    @include box_shadow;
+                                                }
+                                            }
+                                        }
+                                        .add-sub-button-container{
+                                            @include flexCentreRow;
+                                            justify-content: flex-end;
+                                            p{
+                                                background: $black;
+                                                padding: 0.5em 2em;
+                                                color: $white;
+                                                cursor: pointer;
+                                                transition: 0.2s;
+                                                &:hover{
+                                                    color: $black;
+                                                    background: $white;
+                                                    @include box_shadow;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .showError{
+                                width: 70%;
+                                margin: 0 auto;
+                                color: $primaryMagenta;
+                            }
+                            .added-input-container{
+                                width: 100%;
+                                position: relative;
+                                .added-sub-services-outer-container{
+                                    width: 97%;
+                                    background: $veryVeryLightGrey;
+                                    padding: 0.5em;
+                                    margin: 1em 0;
+                                    cursor: pointer;
+                                    position: relative;
+                                    transition: 0.2s;
+                                     &:hover{
+                                        .tooltip-text{
+                                            @include flexCentreCol;
+                                        }
+                                    }
+                                    .tooltip-text{
+                                        @include flexCentreCol;
+                                        position: absolute;
+                                        display: none;
+                                        background: #ffffffd6;
+                                        width: 100%;
+                                        height: 100%;
+                                        p{
+                                            color: $primaryMagenta;
+                                            background: $white;
+                                            padding: 0.5em 1em;
+                                            text-align: center;
+                                        }
+                                    }
+                                    .added-sub-services-inner-container{
+                                        @include flexCentreRow;
+                                        align-items: flex-start;
+                                        justify-content: flex-start;
+                                        .image-value-container{
+                                            // width: 20%;
+                                            margin-right: 1em;
+                                            img{
+                                                // width: 100%;
+                                                width: 14em;
+                                                // height: 5em;
+                                            }
+                                        }
+                                        .added-sub-services-form-container{
+                                            @include flexCentreCol;
+                                            align-items: flex-start;
+                                            .sub-name-input{
+
+                                            }
+                                            .added-sub-input{
+                                                @include flexCentreCol;
+                                                align-items: flex-start;
+                                                h3{
+                                                    color: $black;
+                                                    font-size: 1.5em;
+                                                    span{
+                                                        margin-left: 0.5em;
+                                                        color: $semiDarkGrey;
+                                                        font-size: 0.65em;
+                                                    }
+                                                }
+                                                .line{
+                                                    height: 0.1em;
+                                                    width: 50%;
+                                                    background: $primaryMagenta;
+                                                    // margin: 0.2em 0 0.5em 0;
+                                                }
+                                            }
+                                            .sub-rate-timeline-input{
+                                                @include flexCentreRow;
+                                                align-items: flex-start;
+                                                h3{
+                                                    color: $darkGrey;
+                                                    margin-right: 1em;
+                                                    span{
+                                                        color: $black;
+                                                    }
+                                                }
+                                            }
+                                            .sub-input{
+                                                h3{
+                                                    font-size: 0.9em;
+                                                    color: $black;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    .delete-sub-services-button-container{
+                                        position: absolute;
+                                        top: 0.5em;
+                                        right: 1em;
+                                        cursor: pointer;
+                                    }
+                                }
+                                .service-success-modal{
+                                    @include flexCentreCol;
+                                    position: fixed;
+                                    width: 100%;
+                                    height: 100%;
+                                    top: 0;
+                                    left: 0;
+                                    background: #ffffffd6;
+                                    z-index: 1;
+                                    .success-modal-inner-layer{
+                                        @include flexCentreCol;
+                                        background: $white;
+                                        @include box_shadow;
+                                        width: 70%;
+                                        height: 70vh;
+                                        padding: 0.5em;
+                                        p{
+                                            font-size: 2em;
+                                            color: $primaryMagenta;
+                                            margin: 1em 0;
+                                            text-align: center;
+                                        }
+                                        .close-success-modal-button-container{
+                                            .whiteButtonWrapper{
+                                                background: $black;
+                                                color: $white;
+                                            }
+                                        }
+                                    }
+                                }
+                                .add-services-loader{
+                                    @include flexCentreCol;
+                                    position: fixed;
+                                    width: 100%;
+                                    height: 100%;
+                                    top: 0;
+                                    left: 0;
+                                    background: #ffffffd6;
+                                    z-index: 999999;
+                                    .add-services-loader-inner-container{
+                                        @include flexCentreCol;
+                                        padding: 0.5em;
+                                        background: $white;
+                                    }
+                                }
+                                .submit-services-loader{
+                                    @include flexCentreCol;
+                                    position: fixed;
+                                    width: 100%;
+                                    height: 100%;
+                                    top: 0;
+                                    left: 0;
+                                    background: #ffffffd6;
+                                    z-index: 1;
+                                    .submit-services-loader-inner-container{
+                                        @include flexCentreCol;
+                                        padding: 0.5em;
+                                        background: $white;
+                                    }
+                                }
+                            }
+                        }
+                        .sub-services-form-container{
+                            @include flexCentreRow;
+                            position: fixed;
+                            width: 100%;
+                            height: 100%;
+                            top: 0;
+                            background: #ffffffd6;
+                            border-radius: 1em;
+                            // margin: 1em 0;
+                            .close-sub-service{
+                                position: absolute;
+                                top: 1.5em;
+                                right: 1em;
+                                cursor: pointer;
+                                background: $white;
+                                padding: 1em;
+                                p{
+                                    color: $black;
+                                    &:hover{
+                                        color: $primaryMagenta;
+                                    }
+                                }
+                            }
+                            .sub-services-form-inner-container{
+                                @include flexCentreCol;
+                                width: 90%;
+                                background: $white;
+                                @include box_shadow;
+                                margin: 0.5em 0;
+                                padding: 1.5em;
+                                .sub-services-form-input-data-container{
+                                    @include flexCentreCol;
+                                    width: 100%;
+                                    .input-area-form-container{
+                                        @include flexCentreRow;
+                                        align-items: flex-start;
+                                        justify-content: flex-start;
+                                        width: 100%;
+                                        margin: 0.5em 0;
+                                        .input-field-header{
+                                            width: 20%;
+                                            margin-right: 0.5em;
+                                            h3{
+                                                color: $black;
+                                            }
+                                        }
+                                        .input-field-container{
+                                            @include flexCentreCol;
+                                            align-items: flex-start;
+                                            width: 80%;
+                                            input{
+                                                width: 95%;
+                                            }
+                                            .InputSeparatorLine{
+                                                width: 95%;
+                                            }
+                                            p{
+                                                width: 100%;
+                                                text-align: center;
+                                                color: $primaryMagenta;
+                                            }
+                                            .show-image-text{
+                                                width: fit-content;
+                                                text-align: left;
+                                                color: $primaryMagenta;
+                                            }
+                                            textarea{
+                                                width: 94%;
+                                                border: 0.2em solid $lightGrey;
+                                                padding: 0.5em;
+                                                resize: none;
+                                            }
+                                            .add-button-container{
+                                                background: $white;
+                                                padding: 0.5em 1em;
+                                                color: $black;
+                                                @include box_shadow;
+                                                cursor: pointer;
+                                                margin: 0 0.5em;
+                                                p{
+                                                    color: $black;
+                                                    &:hover{
+                                                        color: $primaryMagenta;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        .sub-service-image-container{
+                                            @include flexCentreCol;
+                                            justify-content: flex-start;
+                                            align-items: flex-start;
+                                            .sub-image-add-container{
+                                                @include flexCentreCol;
+                                                @include flexCentreRow;
+                                                justify-content: flex-start;
+                                                align-items: flex-end;
+                                                img{
+                                                    // width: 40%;
+                                                    height: 10em;
+                                                    object-fit: cover;
+                                                }
+                                                .change-image-button{
+                                                    margin-left: 1em;
+                                                    background: $white;
+                                                    padding: 0.5em 1em;
+                                                    color: $black;
+                                                    @include box_shadow;
+                                                    cursor: pointer;
+                                                    p{
+                                                        color: $black;
+                                                        &:hover{
+                                                            color: $primaryMagenta;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                           
+                                            p{
+                                                color : $primaryMagenta;
+                                            }
+                                        }
+                                    }
+                                    .add-close-button{
+                                        @include flexCentreRow;
+                                        justify-content: flex-end;
+                                        align-items: flex-end;
+                                        margin: 1em 0 0 0;
+                                        width: 100%;
+                                        .close-sub-container{
+                                            // @include flexCentreRow;
+                                            // justify-content: flex-end;
+                                            // margin-right: 1em;
+                                            // p{
+                                            //     background: $black;
+                                            //     padding: 0.5em 2em;
+                                            //     color: $white;
+                                            //     cursor: pointer;
+                                            //     transition: 0.2s;
+                                            //     &:hover{
+                                            //         color: $black;
+                                            //         background: $white;
+                                            //         @include box_shadow;
+                                            //     }
+                                            // }
+                                            display: none;
+                                        }
+                                        .add-sub-button-container{
+                                            @include flexCentreRow;
+                                            justify-content: flex-end;
+                                            p{
+                                                background: $black;
+                                                padding: 0.5em 2em;
+                                                color: $white;
+                                                cursor: pointer;
+                                                transition: 0.2s;
+                                                &:hover{
+                                                    color: $black;
+                                                    background: $white;
+                                                    @include box_shadow;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    
+                                }
+                            }
+                        }
+                    }
+                    .image-uploader-container{
+                        @include flexCentreCol;
+                        position: fixed;
+                        top: 0;
+                        width: 100%;
+                        height: 100%;
+                        left: 0;
+                        padding: 0;
+                        background: #ffffffd6;
+                        z-index: 1;
+                        .image-uploader-inner-wrapper{
+                            @include flexCentreCol;
+                            background: $white;
+                            @include box_shadow;
+                            // margin: 1em 0;
+                            width: 60%;
+                            height: 75%;
+                            position: relative;
+                            .image-close-container{
+                                position: absolute;
+                                right: 1em;
+                                top: 1em;
+                                cursor: pointer;
+                                &:hover{
+                                    p{
+                                        color: $primaryMagenta;
+                                        text-decoration: underline;
+                                    }
+                                }
+                            }
+                            .imageUploaderWrap{
+                                .pictureUpload{
+                                    img{
+                                        width: 20em;
+                                        height: 20em;
+                                    }
+                                }
+                            }
+                            .image-upload-show-button{
+                                width: 20%;
+                                .whiteButtonWrapper{
+                                    background: $black;
+                                    color: $white;
+                                    padding: 1em;
+                                }
+                            }
+                        }
+                    }
+                }
+                .submit-button-container{
+                    .whiteButtonWrapper{
+                        background: $black;
+                        color: $white;
+                        box-shadow: none;
+                        border-radius: 0;
+                    }
+                }
+            }
+            .submit-button-container{
+                margin-right: 1em;
+                .whiteButtonWrapper{
+                    background: $black;
+                    color: $white;
+                    box-shadow: none;
+                    border-radius: 0;
+                }
+            }
+        }
+        // .generic-modal-inner-layer::after {
+        //     content: "";
+        //     position: absolute;
+        //     bottom: 100%;
+        //     left: 49%;
+        //     margin-left: -5px;
+        //     border-width: 15px;
+        //     border-style: solid;
+        //     border-color: transparent transparent $veryLightGrey transparent;
+        // }
+    }
+}
+

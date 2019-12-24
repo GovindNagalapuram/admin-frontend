@@ -1,0 +1,1928 @@
+@import "_mixins";
+@import "_vars";
+
+@include includeCommonStyles;
+@include ignoreDefaultStyles;
+
+
+@include scrollStyles;
+
+.public-DraftEditor-content{
+    height: 48vh;
+    overflow-y: auto;
+    h1 {
+        font-family: 'Prata', serif;
+        margin: 0;
+        font-size: 	32px;
+        font-weight: 600; 
+      }
+    h2 {
+        font-family: 'Prata', serif;
+        margin: 0;
+        font-size:  24px;
+        font-weight: 600;
+    }
+    
+    h3 {
+        font-family: 'Prata', serif;
+        margin: 0;
+        font-size: 	18.72px;
+        font-weight: 600;
+    }
+    
+    h4 {
+        font-family: 'Prata', serif;
+        margin: 0;
+        font-size: 	16px;
+        font-weight: 600;
+    }
+    
+    h5 {
+        font-family: 'Prata', serif;
+        margin: 0;
+        font-size: 	13.28px;
+        font-weight: 600;
+    }
+    
+    h6 {
+        font-family: 'Prata', serif;
+        margin: 0;
+        font-size: 	12px;
+        font-weight: 600;
+        background: none;
+        color: #6d6d6d;
+    }
+}
+
+.RichEditor-controls {
+    font-family: 'Helvetica', sans-serif;
+    font-size: 14px;
+    margin-bottom: 5px;
+    user-select: none;
+    .RichEditor-styleButton {
+        color: #999;
+        cursor: pointer;
+        margin-right: 16px;
+        padding: 2px 0;
+        display: inline-block;
+    }  
+    .RichEditor-activeButton {
+        color: #5890ff;
+    }
+}
+
+.line{
+    width: 100%;
+    margin: 0.2em 0;
+    height: 0.1em;
+    background: $mediumGrey;
+}
+
+.loading-wrapper{
+    @include flexCentreRow;
+    width: 100%;
+    height: 10em;
+}
+
+// img{
+//     width: 5em;
+//     height: 5em;
+// }
+.arrow-down {
+    width: 0; 
+    height: 0; 
+    border-left: 0.4em solid transparent;
+    border-right: 0.4em solid transparent;
+    margin: 0.5em;
+    border-top: 0.4em solid $highLightBlue;
+}
+
+.arrow-up {
+    width: 0; 
+    height: 0; 
+    border-left: 0.4em solid transparent;
+    border-right: 0.4em solid transparent;
+    border-bottom: 0.4em solid $highLightBlue;
+    margin: 0.5em;
+}
+
+
+@keyframes slidein {
+    from {
+      width: 0%; 
+    }
+  
+    to {
+      width: 35%;
+    }
+}
+
+@keyframes slideout {
+    from {
+      width: 35%; 
+    }
+  
+    to {
+      width: 0%;
+    }
+}
+
+.loadingAnim{
+    @include flexCentreRow;
+    width: 100%;
+    height: 10em;
+}
+
+input{
+    border: none;
+    // border-bottom: 0.2em solid $black;
+    background: transparent;
+    color: $darkerGrey;
+    outline: none;
+    height: 1.5em;
+    width: 100%;
+    border-bottom: 0.2em solid $lightGrey;
+    &:focus + .InputSeparatorLine {
+        transform: scaleX(1) translateY(-2px);   
+        opacity: 1;
+    }
+    &:hover + .InputSeparatorLine{
+        transform: scaleX(1) translateY(-2px);   
+        opacity: 1;
+    }
+}
+
+
+.InputSeparatorLine {
+    height:0.2em;
+    width: 100%;
+    background: $darkGrey;
+    display: block;
+    transform: scaleX(0) translateY(-2px);
+    transform-origin: 50%;
+    opacity: 0;
+    transition: all .15s $curve;
+}
+
+
+* :focus {
+    outline-color: transparent;
+    outline-style: none;
+}
+
+.hide{
+    display: none
+}
+
+.admin-panel-outer-layer{
+    width: 100%;
+    height: 100%;
+    .loadingClassMain{
+        @include flexCentreCol;
+    }
+    .admin-panel-inner-layer{
+        @include flexCentreCol;
+        // margin: 1em 0;
+        width: 100%;
+        height: 100%;
+        .admin-panel-header-container{
+            @include flexCentreRow;
+            justify-content: space-around;
+            width: 100%;
+            background: $lightGrey;
+            .headerText{
+                // padding: 0.5em;
+                transition: .3s;
+                h3{
+                    color: $black;
+                    padding: 0.5em;
+                    margin: 0;
+                    font-size: 1.1em;
+                    font-weight: bold;
+                }
+                .headerTextOne{
+                    color: $black;
+                    text-decoration: underline;
+                    background: $white;
+                    padding: 0.5em;
+                    margin: 0;
+                }
+                &:hover{
+                    text-decoration: underline;
+                    background: $white;
+                    cursor: pointer;
+                }
+            }
+            .headerTextOne{
+                padding: 0.5em;
+                transition: .3s;
+                .headerTextOne{
+                    color: $black;
+                    text-decoration: underline;
+                    background: $white;
+                }
+            }
+        }
+        .admin-content-outer-layer{
+            width: 100%;
+            .admin-panel-content-container,.admin-content-container{
+                .order-details-outer-layer{
+                    width: 100%;
+                    margin: 1em 0;
+                    position: relative;
+                    .order-details-inner-layer{
+                        width: 100%;
+                        .analytics-page-number-section{
+                            @include flexCentreRow;
+                            justify-content: flex-start;
+                            width: 95%;
+                            margin: 0.5em auto;
+                            .analytics-page-number-section-inner-layer{
+                                @include flexCentreRow;
+                                justify-content: flex-start;
+                                width: 100%;
+                                justify-content: space-between;
+                                .page-number-container{
+                                    @include flexCentreRow;
+                                    .page-numbers{
+                                        @include flexCentreRow;
+                                        cursor: pointer;
+                                        .slides{
+                                            @include flexCentreRow;
+                                        }
+                                    }
+                                    p{
+                                        font-size: 0.9em;
+                                        color: $black;
+                                    }
+                                    .arrow-container{
+                                        margin: 0 0.5em;
+                                        cursor: pointer;
+                                    }
+                                }
+                                h3{
+                                    margin: 0 0.5em;
+                                    color: $mediumGrey;
+                                }
+                                .underline{
+                                    font-size: 1.1em;
+                                    color: $black;
+                                    text-decoration: underline;
+                                }
+                                .download-button-conatiner{
+                                    @include flexCentreRow;
+                                    background: $darkGrey;
+                                    padding: 0.5em;
+                                    border-radius: 0.3em;
+                                    cursor: pointer;
+                                    p{
+                                        color: $white;
+                                        font-size: 0.9em
+                                    }
+                                }
+                            }
+                        }
+                        .grid-container-outer-layer{
+                            width: 100%;
+                            background: $lightGrey;
+                            .grid-container-inner-layer{
+                                width: 95%;
+                                margin: 0 auto;
+                                display: grid;
+                                grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+                                padding: 0.5em;
+                                .grid-title-layer{
+                                    position: relative;
+                                    @include flexCentreRow;
+                                    justify-content: flex-start;
+                                    align-items: flex-end;
+                                    cursor: pointer;
+                                    h3{
+                                        color: $black;
+                                    }
+                                    .tooltip {
+                                        visibility: hidden;
+                                        width: 65%;
+                                        background-color: $black;
+                                        padding: 0.5em 0;
+                                        text-align: center;
+                                        border-radius: 0.3em;
+                                        position: absolute;
+                                        z-index: 1;
+                                        top: 2em;
+                                        left: 10%;
+                                        margin-left: -60px;
+                                        p{
+                                            color: $white;
+                                            padding: 0 0.5em;
+                                        }
+                                      }
+                                      
+                                      .tooltip ::after {
+                                        content: "";
+                                        position: absolute;
+                                        bottom: 100%;
+                                        left: 50%;
+                                        margin-left: -5px;
+                                        border-width: 5px;
+                                        border-style: solid;
+                                        border-color: transparent transparent black transparent;
+                                      }
+                                      &:hover {
+                                        .tooltip{
+                                            visibility: visible;
+                                        }
+
+                                      }
+                                }
+                            }
+                        }
+                        .order-info-content-container{
+                            width: 100%;
+                            margin: 0.5em 0;
+                            background-color: $veryLightGrey;
+                            .order-info-content-inner-layer{
+                                width: 95%;
+                                margin: 0 auto;
+                                display: grid;
+                                grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+                                padding: 0.5em;
+                                .info-value-container{
+                                    @include flexCentreRow;
+                                    justify-content: flex-start;
+                                    p{
+                                        color: $black;
+                                        font-size: 0.8em;
+                                        // width: 100%;
+                                    }
+                                    .img-length-container{
+                                        cursor: pointer;
+                                        span{
+                                            color: $primaryMagenta;
+                                            &:hover{
+                                                text-decoration: underline;
+                                            }
+                                        }
+
+                                    }
+                                }
+                                .mobile-num-container{
+
+                                }
+                                .detail-time{
+                                    @include flexCentreRow;
+                                    justify-content: space-between;
+                                    .detail-button-Container{
+                                        border: 0.1em solid $black;
+                                        border-radius: 0.2em;
+                                        margin: 0 0.5em 0 0.7EM;;
+                                        padding: 0.1em;
+                                        background: $white;
+                                        width: 30%;
+                                        cursor: pointer;
+                                        p{
+                                            color: $black;
+                                            text-align: center;
+                                        }   
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .order-details-image-modal-container{
+                        top: 0;
+                        width: 100%;
+                        position: fixed;
+                        height: 100%;
+                        background: $veryVeryLightGrey;
+                        transition: 0.3s;
+                        .modalContainer-inner-layer{
+                            position: relative;
+                            width: 100%;
+                            height: 100%;
+                            .close-button{
+                                position: absolute;
+                                right: 2em;
+                                top: 2em;
+                                cursor: pointer;
+                                display: none;
+                            }
+                            .expand-modal-close-button{
+                                // 
+                                position: absolute;
+                                right: 2em;
+                                top: 2em;
+                                cursor: pointer;
+                                p{
+                                    color: $primaryMagenta;
+                                    &:hover{
+                                        cursor: pointer;
+                                        text-decoration: underline;
+                                    }
+                                }
+                            }
+                            .order-details-modal-container-innerLayer{
+                                @include flexCentreRow;
+                                width: 100%;
+                                height: 100%;
+                                .custom-images-modal-container-outer-layer{
+                                    width: 100%;
+                                    height: 100%;
+                                    .custom-images-modal-container-inner-layer{
+                                        @include flexCentreRow;
+                                        width: 95%;
+                                        height: 100%;
+                                        margin: 0 auto;
+                                        .preview-img-slider-container{
+                                            width: 30%;
+                                            max-height: 23em;
+                                            overflow-y: auto;
+                                            padding: 0.5em;
+                                            margin: 0.5em;
+                                            .preview-img-slider-container-inner-layer{
+                                                display: grid;
+                                                grid-template-columns: 1fr 1fr;
+                                                width: 95%;
+                                                margin: 0 auto;
+                                                .img-container{
+                                                    // width: 7em;
+                                                    // height: 7em;
+                                                    margin: 0.5em;
+                                                    img{
+                                                        // width: 100%;
+                                                        // height: 100%;
+                                                        // object-fit: cover;
+                                                        // cursor: pointer;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        .preview-img-main-container{
+                                            width: 60%;
+                                            height: 37em;
+                                            overflow-y: auto;
+                                            padding: 0.5em;
+                                            margin: 0.5em;
+                                            .preview-img-main-container-inner-layer{
+                                                width: 100%;
+                                                height: 100%;
+                                                .productImages-container{
+                                                    width: 100%;
+                                                    height: 100%;
+                                                    img{
+                                                        // width: 100%;
+                                                        // height: 100%;
+                                                        // object-fit: cover;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .order-details-modal-container{
+                        top: 0;
+                        right: 0;
+                        width: 0;
+                        position: fixed;
+                        overflow-x: hidden;
+                        height: 100%;
+                        background: $white;
+                        animation: slidein 0.2s ease;
+                        .modalContainer-inner-layer{
+                            position: relative;
+                            width: 100%;
+                            height: 100%;
+                            .close-button{
+                                position: absolute;
+                                right: 4em;
+                                top: 2em;
+                                background: $white;
+                                padding: 0.2em;
+                                cursor: pointer;
+                            }
+                            .expand-modal-close-button{
+                                position: absolute;
+                                right: 4em;
+                                top: 2em;
+                                cursor: pointer;
+                                background: $white;
+                                p{
+                                    font-size: 1em;
+                                    color: $primaryMagenta;
+                                    &:hover{
+                                        cursor: pointer;
+                                        text-decoration: underline;
+                                    }
+                                }
+                            }
+                            .order-details-modal-container-innerLayer{
+                                @include flexCentreRow;
+                                width: 100%;
+                                height: 100%;
+                                .order-details-main-container{
+                                    width: 95%;
+                                    padding: 0.5em;
+                                    background: $white;
+                                    // @include boxShadow;
+                                    .order-scroll-container{
+                                        width: 100%;
+                                        height: 95vh;
+                                        overflow-y: auto;
+                                        .details-container-inner-layer{
+                                            @include flexCentreCol;
+                                            width: 100%;
+                                            .customerDetails-container{
+                                                margin: 0.5em auto;
+                                                width: 95%;
+                                                h3{
+                                                    color: $black;
+                                                    font-size: 1.2em;
+                                                }
+                                                .customer-info-section{
+                                                    @include flexCentreCol;
+                                                    justify-content: flex-start;
+                                                    width: 100%;
+                                                    .data-input-Container{
+                                                        margin: 0.5em 0;
+                                                        width: 100%;
+                                                        p{
+                                                            color: $primaryMagenta;
+                                                        }
+                                                        span{
+                                                            font-size: 0.8em;
+                                                            color: $darkerGrey;
+                                                            font-weight: 600;
+                                                            margin: 0.5em 0;
+                                                        }
+                                                        .info-section{
+                                                            margin: 0.2em 0;
+                                                            width: 100%;
+                                                            p{
+                                                                color: $darkerGrey;
+                                                            }
+                                                            .line{
+                                                                width: 100%;
+                                                                height: 0.1em;
+                                                                margin: 0.2em 0;
+                                                                background: $mediumGrey;
+                                                            }
+                                                            // .return-img-container{
+                                                            //     // width: 95%;
+                                                            //     margin: 0.5em auto;
+                                                            //     img{
+                                                            //         width: 7em;
+                                                            //         height: 7em;
+                                                            //         object-fit: cover;
+                                                            //     }
+                                                            // }
+                                                        }
+                                                        .img-section{
+                                                            @include flexCentreRow;
+                                                            justify-content: flex-start;
+                                                            width: 95%;
+                                                            margin: 0.5em auto;
+                                                            .return-img-container{
+                                                                // width: 95%;
+                                                                // width: 6em;
+                                                                // height: 6em;
+                                                                margin: 0 0.5em;
+                                                                img{
+                                                                    // width: 100%;
+                                                                    // height: 100%;
+                                                                    // object-fit: cover;
+                                                                }
+                                                            }
+                                                        }
+                                                        .material-info-section{
+                                                            width: 90%;
+                                                            margin: 0.5em auto;
+                                                            .material-section{
+                                                                margin: 0.5em 0;
+                                                                h3{
+                                                                    font-size: 0.8em;
+                                                                    color: $black;
+                                                                    margin: 0.2em 0;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            .customer-details-cart-container{
+                                                width: 100%;
+                                                margin: 0.5em 0;
+                                                h3{
+                                                    color: $black;
+                                                    font-size: 1em;
+                                                }
+                                                .customer-details-cart-inner-container{
+                                                    width: 95%;
+                                                    max-height: 43vh;
+                                                    overflow-y: auto;
+                                                    margin: 0.5em auto;
+                                                    .cart-info-section-outer-container{
+                                                        width: 97%;
+                                                        margin: 0.5em 0;
+                                                        cursor: pointer;
+                                                        .cart-info-section-inner-container{
+                                                            position: relative;
+                                                            @include flexCentreRow;
+                                                            justify-content: flex-start;
+                                                            align-items: flex-start;
+                                                            width: 96%;
+                                                            margin: 0 auto;
+                                                            @include box-shadow;
+                                                            border-radius: 0.8em;
+                                                            padding: 0.5em;
+                                                            transition: 0.3s;
+                                                            .cart-info-hover-container{
+                                                                position: absolute;
+                                                                top: 0;
+                                                                width: 100%;
+                                                                left: 0;
+                                                                @include flexCentreCol;
+                                                                height: 100%;
+                                                                background: rgba(0,0,0,.5);;
+                                                                border-radius: 0.8em;
+                                                                display: none;
+                                                                p{
+                                                                    color: $white;
+                                                                    font-size: 1.3em;
+                                                                    text-decoration: underline;
+                                                                }
+                                                            }
+                                                            &:hover{
+                                                                .cart-info-hover-container{
+                                                                    @include flexCentreCol;
+                                                                }  
+                                                            }
+                                                            .cart-details-image-container{
+                                                                width: 25%;
+                                                                .img-container{
+                                                                    width: 100%;
+                                                                    height: 7em;
+                                                                    img{
+                                                                        width: 100%;
+                                                                        height: 100%;
+                                                                        object-fit: cover;
+                                                                    }
+                                                                }
+                                                            }
+                                                            .cart-details-input-container{
+                                                                @include flexCentreCol;
+                                                                width: 73%;
+                                                                margin: 0 0.5em;
+                                                                .data-input-Container{
+                                                                    width: 95%;
+                                                                    margin: 0.2em auto;
+                                                                    .info-section{
+                                                                        @include flexCentreRow;
+                                                                        justify-content: flex-start;
+                                                                        h3{
+                                                                            font-size: 0.8em;
+                                                                            margin-right: 0.5em;
+                                                                        }
+                                                                        p{
+                                                                            color: $primaryMagenta;
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                .analytics-data-main-container{
+                                    width: 95%;
+                                    padding: 0.5em;
+                                    background: $white;
+                                    .analytics-scroll-container{
+                                        width: 100%;
+                                        height: 82vh;
+                                        overflow-y: auto;
+                                        .analytics-details-inner-layer{
+                                            @include flexCentreCol;
+                                            width: 100%;
+                                            .analytics-data-header-container{
+                                                @include flexCentreCol;
+                                                width: 100%;
+                                                margin: 0.5em 0;
+                                                .analytics-data-header-container-innerLayer{
+                                                    @include flexCentreRow;
+                                                    justify-content: center;
+                                                    width: 95%;
+                                                    margin: 0 auto;
+                                                    p{
+                                                        color: $black;
+                                                        font-size: 0.9em;
+                                                    }
+                                                    span{
+                                                        color: $black;
+                                                        margin: 0 0.3em;
+                                                    }
+                                                }
+                                            }
+                                            .analytics-view-container{
+                                                width: 100%;
+                                                margin: 0.5em 0;
+                                                background: $lightGrey;
+                                                padding: 0.5em 0;
+                                                .analytics-view-container-innerLayer{
+                                                    display: grid;
+                                                    grid-template-columns: 1fr 1fr 1fr;
+                                                    width: 100%;
+                                                    .view-container{
+                                                        @include flexCentreCol;
+                                                        justify-content: flex-start;
+                                                        h3{
+                                                            color: $black;
+                                                            font-size: 0.9em;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            .time-view-conatiner{
+                                                display: grid;
+                                                grid-template-columns: 1fr 1fr 1fr;
+                                                width: 100%;
+                                                margin: 0.5em 0;
+                                                background: $veryLightGrey;
+                                                padding: 0.5em 0;
+                                                .date-time-container{
+                                                    display: grid;
+                                                    grid-template-columns: 1fr;
+                                                    text-align: center;
+                                                    
+                                                    p{
+                                                        color: $black;
+                                                        margin: 0.2em;
+                                                        // max-width: 15em;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .order-details-modal-animation{
+                        animation: slideout 0.2s ease;
+                        width: 0;
+                    }
+                }
+                .service-details-outer-layer{
+                    width: 100%;
+                    margin: 1em 0;
+                    position: relative;
+                    .service-details-inner-layer{
+                        width: 100%;
+                        .grid-container-outer-layer{
+                            width: 100%;
+                            background: $lightGrey;
+                            .grid-container-inner-layer{
+                                width: 95%;
+                                margin: 0 auto;
+                                display: grid;
+                                grid-template-columns: 1fr 1fr 1fr 1fr;
+                                padding: 0.5em;
+                                .grid-title-layer{
+                                    position: relative;
+                                    @include flexCentreRow;
+                                    justify-content: flex-start;
+                                    align-items: flex-end;
+                                    cursor: pointer;
+                                    h3{
+                                        color: $black;
+                                    }
+                                }
+                            }
+                        }
+                        .emptyContainerText{
+                            text-align: center;
+                            margin: 1em 0;
+                            color: $primaryMagenta;
+                            font-size: 1em;
+                        }
+                        .service-info-content-container{
+                            width: 100%;
+                            margin: 0.5em 0;
+                            background-color: $veryLightGrey;
+                            .service-info-content-inner-layer{
+                                width: 95%;
+                                margin: 0 auto;
+                                display: grid;
+                                grid-template-columns: 1fr 1fr 1fr 1fr;
+                                padding: 0.5em;
+                                .info-value-container{
+                                    @include flexCentreRow;
+                                    justify-content: flex-start;
+                                    p{
+                                        color: $black;
+                                        font-size: 0.8em;
+                                        // width: 100%;
+                                    }
+                                }
+                                .detail-switch{
+                                    @include flexCentreRow;
+                                    justify-content: space-between;
+                                    .detail-time{
+                                        width: 30%;
+                                        .detail-button-Container{
+                                            width: 100%;
+                                            border: 0.1em solid $black;
+                                            border-radius: 0.2em;
+                                            margin: 0 0.5em 0 0.7EM;;
+                                            padding: 0.1em;
+                                            background: $white;
+                                            cursor: pointer;
+                                            p{
+                                                color: $black;
+                                                text-align: center;
+                                            }   
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .service-details-modal-container{
+                        top: 0;
+                        right: 0;
+                        width: 0;
+                        position: fixed;
+                        overflow-x: hidden;
+                        height: 100%;
+                        background: $white;
+                        animation: slidein 0.2s ease;
+                        
+                        .modalContainer-inner-layer{
+                            @include flexCentreRow;
+                            position: relative;
+                            width: 100%;
+                            height: 100%;
+                            .close-button{
+                                position: absolute;
+                                right: 1em;
+                                top: 1em;
+                                background: $white;
+                                padding: 0.2em;
+                                cursor: pointer;
+                            }
+                            .service-details-modal-container-innerLayer{
+                                @include flexCentreRow;
+                                align-items: flex-start;
+                                width: 95%;
+                                padding: 0.5em;
+                                height: 95%;
+                                margin: 0 auto;
+                                .service-details-main-container{
+                                    width: 100%;
+                                    .service-scroll-container{
+                                        width: 100%;
+                                        // height: 85vh;
+                                        // overflow-y: auto;
+                                        .service-details-container-inner-layer{
+                                            @include flexCentreCol;
+                                            width: 100%;
+                                            .service-custom-container{
+                                                @include flexCentreCol;
+                                                width: 100%;
+                                                .id-name-container{
+                                                    @include flexCentreRow;
+                                                    align-items: flex-end;
+                                                    h3{
+                                                        margin: 0 0.5em;
+                                                    }
+                                                    .sub-service-id{
+                                                         color: $mediumGrey;
+                                                    }
+                                                }
+                                                h3{
+                                                    font-size: 1.2em;
+                                                    color: $black;
+                                                }
+                                                .imageContainer{
+                                                    @include flexCentreCol;
+                                                    margin: 0.5em 0;
+                                                    img{
+                                                        width: 45%;
+                                                        height: 10em;
+                                                        object-fit: cover;
+                                                    }
+                                                }
+                                                p{
+                                                    
+                                                }
+                                                .sub-services-custom-container{
+                                                    width: 100%;
+                                                    max-height: 24em;
+                                                    overflow-y: auto;
+                                                    .sub-service-inner-container{
+                                                        @include flexCentreCol;
+                                                        width: 95%;
+                                                        margin: 0.5em auto;
+                                                        background: $veryVeryLightGrey;
+                                                        .sub-service-info-headers{
+                                                            @include flexCentreRow;
+                                                            justify-content: flex-start;
+                                                            align-items: flex-start;
+                                                            width: 95%;
+                                                            margin: 0.5em auto;
+                                                            .sub-service-image-container{
+                                                                @include flexCentreRow;
+                                                                margin-right: 1em;
+                                                                width: 25%;
+                                                                img{
+                                                                    width: 100%;
+                                                                    height: 4em;
+                                                                    object-fit: cover;
+                                                                }
+                                                            }
+                                                            .sub-services-details{
+                                                                @include flexCentreCol;
+                                                                align-items: flex-start;
+                                                                .sub-id-name-container{
+                                                                    @include flexCentreRow;
+                                                                    h3{
+                                                                        margin-right: 0.5em;
+                                                                        font-size: 1em;
+                                                                    }
+                                                                }
+                                                                .price-timeline-container{
+                                                                    @include flexCentreCol;
+                                                                    align-items: flex-start;
+                                                                    p{
+                                                                        margin-right: 0.5em;
+                                                                        font-weight: 600;
+                                                                        font-size: 0.8em;
+                                                                        span{
+                                                                            color: $black;
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                        .description-para{
+                                                            margin: 0.5em auto;
+                                                            width: 95%;
+                                                        }
+                                                        
+                                                    }
+                                                }
+                                                .update-delete-button-container{
+                                                    @include flexCentreRow;
+                                                    .delete-button-container{
+                                                        .whiteButtonWrapper{
+                                                            background: $red;
+                                                            color: $white;
+                                                            box-shadow: none;
+                                                            border-radius: 0;
+                                                        }
+                                                    }
+                                                    .update-button-container{
+                                                        .whiteButtonWrapper{
+                                                            background: $black;
+                                                            color: $white;
+                                                            box-shadow: none;
+                                                            border-radius: 0;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .architect-details-pages-outer-layer{
+                    width: 100%;
+                    margin: 1em 0;
+                    position: relative;
+                    .architect-pages-inner-layer{
+                        width: 100%;
+                        .grid-container-outer-layer{
+                            width: 100%;
+                            background: $lightGrey;
+                            .grid-container-inner-layer{
+                                width: 95%;
+                                margin: 0 auto;
+                                display: grid;
+                                grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+                                padding: 0.5em;
+                                .grid-title-layer{
+                                    position: relative;
+                                    @include flexCentreRow;
+                                    justify-content: flex-start;
+                                    align-items: flex-end;
+                                    cursor: pointer;
+                                    h3{
+                                        color: $black;
+                                    }
+                                }
+                            }
+                        }
+                        .architect-info-content-container{
+                            width: 100%;
+                            margin: 0.5em 0;
+                            background-color: $veryLightGrey;
+                            .architect-info-content-inner-layer{
+                                width: 95%;
+                                margin: 0 auto;
+                                display: grid;
+                                grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+                                padding: 0.5em;
+                                .info-value-container{
+                                    @include flexCentreRow;
+                                    justify-content: flex-start;
+                                    align-items: flex-start;
+                                    p{
+                                        color: $black;
+                                        font-size: 0.8em;
+                                        // width: 100%;
+                                    }
+                                    .get-listed-details{
+                                        display: grid;
+                                        grid-template-columns: 1fr;
+                                        p{
+                                            text-align: left;
+                                        }
+                                    }
+                                }
+                                .detail-switch{
+                                    @include flexCentreRow;
+                                    justify-content: space-between;
+                                    .detail-time{
+                                        width: 70%;
+                                        .detail-button-Container{
+                                            width: 100%;
+                                            border: 0.1em solid $black;
+                                            border-radius: 0.2em;
+                                            margin: 0 0.5em 0 0.7EM;;
+                                            padding: 0.1em;
+                                            background: $white;
+                                            cursor: pointer;
+                                            p{
+                                                color: $black;
+                                                text-align: center;
+                                            }   
+                                        }
+                                    }
+                                }
+                            }
+                            .architect-details-container{
+                                position: absolute;
+                                // width: 100%;
+                                background: $darkGrey;
+                                padding: 0.1em 0.5em;
+                                right: 2%;
+                                border-radius: 1em;
+                                // height: 3em;
+                                // top: 44px;
+                                .flex-column-container{
+                                    width: 100%;
+                                    height: 100%;
+                                    .service-partner-info-container{
+                                        @include flexCentreRow;
+                                        justify-content: flex-end;
+                                        h3{
+                                            font-size: 1.2em;
+                                            color: $black;
+                                            text-align: center;
+                                            text-decoration: underline;
+                                        }
+                                        .details-container{
+                                            @include flexCentreRow;
+                                            justify-content: flex-start;
+                                            // width: 95%;
+                                            // margin: 0 auto;
+                                            .partner-data{
+                                                @include flexCentreRow;
+                                                justify-content: flex-start;
+                                                margin: 0.5em 0.5em;
+                                                p{
+                                                    margin-right: 1em;
+                                                    color: $white;
+                                                }
+                                                h3{
+                                                    font-size: 0.9em;
+                                                    color: $white;
+                                                    text-decoration: none;
+                                                }
+                                            }
+                                        }
+                                        .close-button{
+                                            cursor: pointer;
+                                        }
+                                    }
+                                }
+                            }
+                            .architect-details-container::after {
+                                content: " ";
+                                position: absolute;
+                                bottom: 100%;  /* At the top of the tooltip */
+                                right: 7%;
+                                margin-left: -5px;
+                                border-width: 10px;
+                                border-style: solid;
+                                border-color: transparent transparent $darkGrey transparent;
+                            }
+                        }
+                    }
+                    .service-partner-details-modal-container{
+                        top: 0;
+                        right: 0;
+                        width: 0;
+                        position: fixed;
+                        overflow-x: hidden;
+                        height: 100%;
+                        background: $white;
+                        animation: slidein 0.2s ease;
+                        
+                        .modalContainer-inner-layer{
+                            @include flexCentreRow;
+                            position: relative;
+                            width: 100%;
+                            height: 100%;
+                            .close-button{
+                                position: absolute;
+                                right: 1em;
+                                top: 1em;
+                                background: $white;
+                                padding: 0.2em;
+                                cursor: pointer;
+                            }
+                            .service-details-modal-container-innerLayer{
+                                @include flexCentreRow;
+                                align-items: flex-start;
+                                width: 95%;
+                                padding: 0.5em;
+                                height: 95%;
+                                margin: 0 auto;
+                                .flex-column-container{
+                                    width: 100%;
+                                    .service-partner-info-container{
+                                        h3{
+                                            font-size: 1.2em;
+                                            color: $black;
+                                            text-align: center;
+                                            text-decoration: underline;
+                                        }
+                                        .details-container{
+                                            width: 100%;
+                                            .partner-data{
+                                                @include flexCentreRow;
+                                                justify-content: flex-start;
+                                                margin: 0.5em 0;
+                                                p{
+                                                    margin-right: 1em;
+                                                }
+                                                h3{
+                                                    font-size: 0.9em;
+                                                    color: $primaryMagenta;
+                                                    text-decoration: none;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .services-details-pages-outer-layer{
+                    width: 100%;
+                    margin: 1em 0;
+                    position: relative;
+                    .services-partner-pages-inner-layer{
+                        width: 100%;
+                        .grid-container-outer-layer{
+                            width: 100%;
+                            background: $lightGrey;
+                            .grid-container-inner-layer{
+                                width: 95%;
+                                margin: 0 auto;
+                                display: grid;
+                                grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+                                padding: 0.5em;
+                                .grid-title-layer{
+                                    position: relative;
+                                    @include flexCentreRow;
+                                    justify-content: flex-start;
+                                    align-items: flex-end;
+                                    cursor: pointer;
+                                    h3{
+                                        color: $black;
+                                    }
+                                }
+                            }
+                        }
+                        .architect-info-content-container{
+                            width: 100%;
+                            margin: 0.5em 0;
+                            background-color: $veryLightGrey;
+                            position: relative;
+                            .architect-info-content-inner-layer{
+                                width: 95%;
+                                margin: 0 auto;
+                                display: grid;
+                                grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+                                padding: 0.5em;
+                                .info-value-container{
+                                    @include flexCentreRow;
+                                    justify-content: flex-start;
+                                    align-items: flex-start;
+                                    p{
+                                        color: $black;
+                                        font-size: 0.8em;
+                                        // width: 100%;
+                                    }
+                                }
+                            }
+                            .architect-details-container{
+                                position: absolute;
+                                width: 100%;
+                                background: white;
+                                height: 5em;
+                                top: 44px;
+                            }
+                        }
+                    }
+                }
+                .mail-services-outer-container{
+                    position: relative;
+                    width: 100%;
+                    margin: 1em 0;
+                    .service-header-inner-container{
+                        @include flexCentreRow;
+                        justify-content: space-around;
+                        width: 100%;
+                        background: $lightGrey;
+                        .headerText{
+                            // padding: 0.5em;
+                            transition: .3s;
+                            h3{
+                                color: $black;
+                                padding: 0.5em;
+                                margin: 0;
+                                font-size: 1.1em;
+                                font-weight: bold;
+                            }
+                            .headerTextOne{
+                                color: $black;
+                                text-decoration: underline;
+                                background: $white;
+                                padding: 0.5em;
+                                margin: 0;
+                            }
+                            &:hover{
+                                text-decoration: underline;
+                                background: $white;
+                                cursor: pointer;
+                            }
+                        }
+                        .headerTextOne{
+                            padding: 0.5em;
+                            transition: .3s;
+                            .headerTextOne{
+                                color: $black;
+                                text-decoration: underline;
+                                background: $white;
+                            }
+                        }
+                    }
+                    .mail-service-info-container{
+                        width: 100%;
+                        .draft-mail-container{
+                            width: 100%;
+                            .drafted-message-main-container{
+                                @include flexCentreCol;
+                                width: 100%;
+                                .show-loader{
+                                    @include flexCentreRow;
+                                    width: 100%;
+                                    margin: 5em 0;
+                                }
+                                .deleted-mails-container{
+                                    position: fixed;
+                                    @include flexCentreRow;
+                                    left: 10px;
+                                    bottom: 20px;
+                                    background: $black;
+                                    padding: 0.5em;
+                                    border-radius: 1em;
+                                    padding: 0.5em 1em;
+                                    cursor: pointer;
+                                    z-index: 6;
+                                    p{
+                                        font-size: 1em;
+                                        color: $white;
+                                        font-weight: 400;
+                                        margin-right: 0.5em;
+                                    }
+                                }
+                                .delete-button-container{
+                                    @include flexCentreRow;
+                                    justify-content: flex-end;
+                                    width: 100%;
+                                    .whiteButtonWrapper{
+                                        color: $white;
+                                        background: $black;
+                                        box-shadow: none;
+                                    }
+                                }
+                                .disable{
+                                    @include flexCentreRow;
+                                    justify-content: flex-end;
+                                    width: 100%;
+                                }
+                                .drafted-message-outer-container{
+                                    width: 97%;
+                                    max-height: 60vh;
+                                    overflow-y: auto;
+                                    margin: 0.5em 0;
+                                    .draft-message-container{
+                                        width: 97%;
+                                        border-top: 1px solid $veryLightGrey;
+                                        border-bottom: 1px solid $veryLightGrey;
+                                        padding: 0.3em 0;  
+                                        &:hover{
+                                            // @include box-shadow;
+                                            border-top: 1px solid $mediumGrey;
+                                            border-bottom: 1px solid $mediumGrey;
+                                        }                                  
+                                        .drafted-message-inner-container{
+                                            @include flexCentreRow;
+                                            justify-content: flex-start;
+                                            cursor: pointer;
+                                            input{
+                                                width: auto;
+                                                margin: 0.3em 0.8em 0 0;
+                                                width: 1.4em;
+                                            }
+                                            .drafted-message-body-container{
+                                                @include flexCentreRow;
+                                                justify-content: space-between;
+                                                width: 100%;
+                                                p{
+                                                    width: 18%;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .sent-mail-container{
+                            width: 100%;
+                            position: relative;
+                            .sent-mail-main-container{
+                                width: 97%;
+                                margin: 1em auto;
+                                max-height: 80vh;
+                                overflow-y: auto;
+                                .show-loader{
+                                    @include flexCentreRow;
+                                    width: 100%;
+                                    margin: 5em 0;
+                                }
+                                .sent-mail-inner-container{
+                                    @include flexCentreCol;
+                                    align-items: flex-start;
+                                    justify-content: flex-start;
+                                    width: 98%;
+                                    .sent-mail-body-container{
+                                        width: 100%;
+                                        border-top: 1px solid $veryLightGrey;
+                                        border-bottom: 1px solid $veryLightGrey;
+                                        padding: 0.3em 0;   
+                                        cursor: pointer;
+                                        &:hover{
+                                            border-top: 1px solid $mediumGrey;
+                                            border-bottom: 1px solid $mediumGrey;
+                                        } 
+                                        .mail-subject-container{
+                                            @include flexCentreRow;
+                                            width: 100%;
+                                            justify-content: space-between;
+                                            p{
+                                                width: 18%;
+                                            }
+                                        }
+                                    }
+                                }
+                                .show-mail-modal-outer-layer{
+                                    @include flexCentreRow;
+                                    position: fixed;
+                                    top: 0;
+                                    left: 0;
+                                    width: 100%;
+                                    height: 100vh;
+                                    background: rgba(0, 0, 0, 0.5);
+                                    z-index: 6;
+                                    .show-mail-modal{
+                                        // position: absolute;
+                                        // top: 0;
+                                        // left: 1%;
+                                        width: 97%;
+                                        height: 70vh;
+                                        background: $white;
+                                        z-index: 2;
+                                        padding: 0.5em;
+                                        @include box-shadow;
+                                        .mail-modal-main-container{
+                                            @include flexCentreCol;
+                                            position: relative;
+                                            width: 100%;
+                                            .mail-modal-close-button-container{
+                                                position: absolute;
+                                                top: 0;
+                                                right: 1em;
+                                                cursor: pointer;
+                                            }
+                                            .subject-container{
+                                                @include flexCentreCol;
+                                                align-items: flex-start;
+                                                width: 100%;
+                                                .sended-mail-recipients-container{
+                                                    @include flexCentreRow;
+                                                    justify-content: flex-start;
+                                                    width: 100%;
+                                                    // h3{
+                                                    //     margin: 0.5em 1em 0.5em 0;
+                                                    // }
+                                                    .sended-recipients{
+                                                        width: 95%;
+                                                        .sended-recipients-inner-container{
+                                                            width: 100%;
+                                                            max-height: 5em;
+                                                            p{
+                                                                display: inline-flex;
+                                                                border: 0.1em solid $primaryMagenta;
+                                                                color: $black;
+                                                                padding: 0.5em 1em;
+                                                                margin: 0.5em;
+                                                                border-radius: 1.5em;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                                h3{
+                                                    color: $black;
+                                                    font-weight: 600;
+                                                    margin: 0.5em 0;
+                                                    span{
+                                                        color: $black;
+                                                        margin-left: 0.5em;
+                                                        font-weight: 500;
+                                                    }
+                                                }
+                                                .input-text-area-container{
+                                                    width: 100%;
+                                                    max-height: 57vh;
+                                                    overflow-y: auto;
+                                                    textarea{
+                                                        width: 100%;
+                                                        height: 45vh;
+                                                        max-height: 45vh;
+                                                        font-family:  Arial,Helvetica,sans-serif;
+                                                        letter-spacing: normal;
+                                                        resize: none;
+                                                        border: none;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .mail-service-inner-container{
+                        // width: 95%;
+                        position: fixed;
+                        margin: 0 auto;
+                        bottom: 21px;
+                        right: 21px;
+                        .compose-mail-button-container{
+                            // @include flexCentreRow;
+                            // justify-content: flex-end;
+                            // width: 100%;
+                            .compose-button{
+                                @include box-shadow;
+                                border-radius: 1em;
+                                padding: 0.5em 2em;
+                                cursor: pointer;
+                                background: $black;
+                                p{
+                                    color: $white;
+                                    font-size: 1em;
+                                    font-weight: 600;
+                                }
+                            }
+                        }
+                    }
+                    .mail-form-outer-container{
+                        .mail-service-modal-container{
+                            @include flexCentreRow;
+                            position: fixed;
+                            // left: 0;
+                            top: 0;
+                            width: 100%;
+                            height: 100vh;
+                            background: rgba(0,0,0,.5);
+                            z-index: 6;
+                            .mail-service-modal-inner-container{
+                                width: 95%;
+                                // height: 75vh;
+                                background: $white;
+                                border-radius: 0.5em;
+                                .modal-main-container{
+                                    @include flexCentreCol;
+                                    width: 100%;
+                                   .modal-header-container{
+                                       background: $veryLightGrey;
+                                       width: 100%;
+                                       padding: 0.5em 0;
+                                       border-radius: 0.5em 0.5em 0 0;
+                                       .modal-header-inner-container{
+                                            @include flexCentreRow;
+                                            width: 95%;
+                                            margin: 0 auto;
+                                            justify-content: space-between;
+                                            p{
+                                                color: $black;
+                                                font-size: 1em;
+                                            }
+                                            .close-container{
+                                                cursor: pointer;
+                                            }
+                                       }
+                                   } 
+                                   .modal-body-container{
+                                     width: 95%;
+                                     margin: 0.5em auto;
+                                     position: relative;
+                                     .modal-body-inner-container{
+                                        width: 100%;
+                                        .expand-mail-container{
+                                            margin: 0.5em 0;
+                                            height: 5em;
+                                            overflow-y: auto;                                    
+                                            .added-recipient-container{
+                                                display: inline-flex;
+                                                border: 0.1em solid $veryLightGrey;
+                                                border-radius: 1em;
+                                                padding: 0.2em 1em;
+                                                margin: 0.2em 0.2em;
+                                                transition: 0.2s;
+                                                &:hover{
+                                                    border: 0.1em solid $primaryMagenta;
+                                                    cursor: pointer;
+                                                    p{
+                                                        color: $primaryMagenta;
+                                                        text-decoration: underline;
+                                                    }
+                                                }
+                                                p{
+                                                    margin-right: 0.5em;
+                                                }
+                                            }
+                                        }
+                                        .input-field-container{
+                                            margin: 0.5em 0 0.8em 0;
+                                            .hide{
+                                                display: none;
+                                            }
+                                            .all-recipient-mail-container{
+                                                // max-height: 7em;
+                                                // overflow-y: auto;
+                                                margin:0.5em 0em;
+                                                .added-recipient-container{
+                                                    display: inline-flex;
+                                                    border: 0.1em solid $veryLightGrey;
+                                                    border-radius: 1em;
+                                                    padding: 0.2em 1em;
+                                                    margin: 0.2em 0.2em;
+                                                    transition: 0.2s;
+                                                    &:hover{
+                                                        border: 0.1em solid $primaryMagenta;
+                                                        cursor: pointer;
+                                                        p{
+                                                            color: $primaryMagenta;
+                                                            text-decoration: underline;
+                                                        }
+                                                    }
+                                                    p{
+                                                        margin-right: 0.5em;
+                                                    }
+                                                }
+                                                .added-recipient-container:nth-child(n+6){
+                                                    display: none;
+                                                }
+                                                .show-more-button-container{
+                                                    display: inline-flex;
+                                                    .button-container-inner-layer{
+                                                        padding: 0.2em 1em;
+                                                        background: $veryLightGrey;
+                                                        color: $black;
+                                                        border: 1px solid $darkGrey;
+                                                        border-radius: 0.5em;
+                                                        margin: 0 0.5em;
+                                                        cursor: pointer;
+                                                    }
+                                                }
+                                            }
+                                            input{
+                                                display: inline-flex;
+                                            }
+                                            .showErrorMessage{
+                                                color: $primaryMagenta;
+                                            }
+                                        }
+                                        .input-text-area-container{
+                                            textarea{
+                                                width: 100%;
+                                                height: 45vh;
+                                                max-height: 45vh;
+                                                font-family:  Arial,Helvetica,sans-serif;
+                                                letter-spacing: normal;
+                                                resize: none;
+                                                border: none;
+                                            }
+                                        }
+                                     } 
+                                     .modal-feature-container{
+                                         position: absolute;
+                                         bottom: 0%;
+                                        //  width: 100%;
+                                         .modal-feature-inner-container{
+                                            @include flexCentreRow;
+                                            justify-content: flex-start;
+                                            background: $white;
+                                            @include box-shadow;
+                                            padding: 0.5em;
+                                            .add-feature-content{
+                                                margin-right: 0.8em;
+                                                cursor: pointer;
+                                            }
+                                         }
+                                     }
+                                   }
+                                   .mail-features-container{
+                                       width: 100%;
+                                       margin: 0.5em 0 0 0;
+                                       background: $veryLightGrey;
+                                       border-top: 2px solid $veryLightGrey;
+                                       .mail-features-inner-container{
+                                           @include flexCentreRow;
+                                           width: 100%;
+                                           justify-content: flex-end;
+                                           .button-container{
+                                               .whiteButtonWrapper{
+                                                   background-color: #1a73e8;
+                                                   color: $white;
+                                                   box-shadow: none;
+                                                   &:hover{
+                                                       @include box-shadow;
+                                                   }
+                                               }
+                                           }
+                                           .discard{
+                                               .whiteButtonWrapper{
+                                                   background: $lightGrey;
+                                                   color: black;
+                                               }
+                                           }
+                                           .feature-cotainer{
+                                               margin-left: 1em;
+                                               .feature-container-inner-layer{
+                                                   @include flexCentreRow;
+                                                   .add-feature-content{
+                                                       margin-right: 0.8em;
+                                                       padding: 0.5em;
+                                                       &:hover{
+                                                           background: $veryLightGrey;
+                                                           cursor: pointer;
+                                                           p{
+                                                               text-decoration: underline;
+                                                               color: $primaryMagenta;
+                                                           }
+                                                       } 
+                                                   }
+                                               }
+                                           }
+                                       }
+                                   }
+                                }
+                            }
+                        }
+                        .deleted-mails-container{
+                            position: fixed;
+                            @include flexCentreRow;
+                            left: 10px;
+                            bottom: 20px;
+                            background: $black;
+                            padding: 0.5em;
+                            border-radius: 1em;
+                            padding: 0.5em 1em;
+                            cursor: pointer;
+                            p{
+                                font-size: 1em;
+                                color: $white;
+                                font-weight: 400;
+                                margin-right: 0.5em;
+                            }
+                        }
+                        .draft-modal{
+                            position: fixed;
+                            @include flexCentreRow;
+                            // width: 100%;
+                            // height: 100%;
+                            bottom: 21px;
+                            left: 21px;
+                            // top: 0;
+                            background-color: $black;
+                            padding: 0.5em 1em;
+                            border-radius: 1em;
+                            cursor: pointer;
+                                p{
+                                    font-size: 1em;
+                                    color: $white;
+                                    margin-right: 0.5em;
+                                }
+                            .draft-modal-inner-container{
+                                @include flexCentreCol;
+                                width: 75%;
+                                height: 15em;
+                                border-radius: 0.8em;
+                                background: $white;
+
+                                .whiteButtonWrapper{
+                                    background: $black;
+                                    color: $white;
+                                    box-shadow: none;
+                                    margin: 1em 0;
+                                }
+                            }
+                        }
+                    }
+                }
+                .service-container{
+                    width: 100%;
+                    margin: 1em 0;
+                    .service-header-inner-container{
+                        @include flexCentreRow;
+                        justify-content: space-around;
+                        width: 100%;
+                        background: $lightGrey;
+                        .headerText{
+                            // padding: 0.5em;
+                            transition: .3s;
+                            h3{
+                                color: $black;
+                                padding: 0.5em;
+                                margin: 0;
+                                font-size: 1.1em;
+                                font-weight: bold;
+                            }
+                            .headerTextOne{
+                                color: $black;
+                                text-decoration: underline;
+                                background: $white;
+                                padding: 0.5em;
+                                margin: 0;
+                            }
+                            &:hover{
+                                text-decoration: underline;
+                                background: $white;
+                                cursor: pointer;
+                            }
+                        }
+                        .headerTextOne{
+                            padding: 0.5em;
+                            transition: .3s;
+                            .headerTextOne{
+                                color: $black;
+                                text-decoration: underline;
+                                background: $white;
+                            }
+                        }
+                    }
+                    .service-info-container{
+                        width: 100%;
+                    }
+                }
+                .order-details-outer-layer{
+                    .order-header-inner-container{
+                        @include flexCentreRow;
+                        justify-content: space-around;
+                        width: 100%;
+                        background: $lightGrey;
+                        .headerText{
+                            // padding: 0.5em;
+                            transition: .3s;
+                            h3{
+                                color: $black;
+                                padding: 0.5em;
+                                margin: 0;
+                                font-size: 1.1em;
+                                font-weight: bold;
+                            }
+                            .headerTextOne{
+                                color: $black;
+                                text-decoration: underline;
+                                background: $white;
+                                padding: 0.5em;
+                                margin: 0;
+                            }
+                            &:hover{
+                                text-decoration: underline;
+                                background: $white;
+                                cursor: pointer;
+                            }
+                        }
+                        .headerTextOne{
+                            padding: 0.5em;
+                            transition: .3s;
+                            .headerTextOne{
+                                color: $black;
+                                text-decoration: underline;
+                                background: $white;
+                            }
+                        }
+                    }
+                    .orders-info-container {
+                        .grid-container-outer-layer{
+                            width: 100%;
+                            margin: 0.5em 0;
+                            background: $lightGrey;
+                            .grid-container-inner-layer{
+                                width: 95%;
+                                margin: 0 auto;
+                                display: grid;
+                                grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+                                padding: 0.5em;
+                                .grid-title-layer{
+                                    position: relative;
+                                    @include flexCentreRow;
+                                    justify-content: flex-start;
+                                    align-items: flex-end;
+                                    cursor: pointer;
+                                    h3{
+                                        color: $black;
+                                    }
+                                    .tooltip {
+                                        visibility: hidden;
+                                        width: 65%;
+                                        background-color: $black;
+                                        padding: 0.5em 0;
+                                        text-align: center;
+                                        border-radius: 0.3em;
+                                        position: absolute;
+                                        z-index: 1;
+                                        top: 2em;
+                                        left: 10%;
+                                        margin-left: -60px;
+                                        p{
+                                            color: $white;
+                                            padding: 0 0.5em;
+                                        }
+                                      }
+                                      
+                                      .tooltip ::after {
+                                        content: "";
+                                        position: absolute;
+                                        bottom: 100%;
+                                        left: 50%;
+                                        margin-left: -5px;
+                                        border-width: 5px;
+                                        border-style: solid;
+                                        border-color: transparent transparent black transparent;
+                                      }
+                                      &:hover {
+                                        .tooltip{
+                                            visibility: visible;
+                                        }
+
+                                      }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .hide{
+        display: none;
+    }
+}

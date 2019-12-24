@@ -1,0 +1,31 @@
+
+body{
+    margin: 0;
+    padding: 0;
+}
+@import "_mixins";
+@import "_vars";
+
+@include includeCommonStyles;
+@include ignoreDefaultStyles;
+
+
+@include scrollStyles;
+
+.home-page-outer-layer{
+    width: 100%;
+    height: 100vh;
+    .home-page-inner-layer{
+        @include flexCentreRow;
+        width: 100%;
+        height: 100%;
+        .form-component-inner-layer{
+            @include flexCentreRow;
+            width: 65%;
+            height: 100%;
+            margin: 0 auto;
+        }
+    }
+}
+
+// cursor:url(https://maps.gstatic.com/mapfiles/openhand_8_8.cur), default; google hand cursor

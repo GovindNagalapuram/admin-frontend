@@ -1,0 +1,95 @@
+@import "_mixins";
+@import "_vars";
+
+
+@include includeCommonStyles;
+@include ignoreDefaultStyles;
+@include gradientAnimation;
+
+
+.imageUploaderWrap{
+     @include flexCentreRow;
+     width: 100%;
+    //  margin: 0 auto;
+
+    .pictureUpload{
+        @include flexCentreCol;
+        width: 100%;
+
+        .inputContainer{
+            width: 100%;
+
+            .pictureContainer{
+                @include flexCentreCol;
+
+                .uploadContainer{
+                    @include flexCentreCol;
+                    padding: 1em;
+                    background: $white;
+                    
+                    border: 0.2em solid $veryLightGrey;
+                    transition: 0.2s;
+
+                    .imageCover{
+                        background: $veryLightGrey;
+
+                        img{
+                            width: 6.5em;
+                            height: 6.5em;
+                            object-fit: cover;
+                        }
+                    }
+    
+                    &:hover{
+                        cursor: pointer;
+                        // @include box_shadow_glow;
+                        border-color: $white;
+                        @include box-shadow;
+                        
+                    }
+                }
+    
+                .hide{
+                    display: none;
+                }
+    
+                h3{
+                    text-align: center;
+                    font-size: 0.75em;
+                    font-weight: 400;
+                    margin-top: 0.5em;
+                }
+            }
+
+            .smallLoader{
+                @include flexCentreCol;
+                width: 100%;
+    
+                .outerLoadingBar{
+                    @include flexCentreCol;
+                    width: 100%;
+                    height: 0.5em;
+                    background: $veryLightGrey;
+                    align-items: flex-start;
+    
+                    .innerLoadingBar{
+                        width: 0%;
+                        background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB, #23D5AB, #23A6D5, #E73C7E, #EE7752,#E73C7E, #23A6D5, #23D5AB);
+                        background-size: 1000% 1000%;
+                        -webkit-animation: Gradient 5s ease infinite;
+                        -moz-animation: Gradient 5s ease infinite;
+                        animation: Gradient 5s ease infinite;
+                        height: 0.5em;
+                        transition: 0.2s;
+                    }
+                }
+            }
+
+            .hide{
+                display: none;
+            }
+        }
+    }
+
+
+}

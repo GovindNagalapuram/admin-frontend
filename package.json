@@ -9,7 +9,7 @@
     "draft-js": "^0.11.0",
     "gsap": "^2.1.2",
     "moment": "^2.24.0",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.13.1",
     "react": "^16.9.0",
     "react-csv": "^1.1.1",
     "react-dates": "^20.1.0",
